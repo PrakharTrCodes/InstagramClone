@@ -1,11 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TouchableOpacity, Image,FlatList, Dimensions } from 'react-native';
 import styles from '../../../assets/Styles';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
-const index = () => {
-    return (
-        <View style={{ flex: 1 }}>
-            <ImageBackground style={{ flex: 1 }} source={require('../../../assets/Images/ReelImg2.gif')}>
+const reelImg = [ {img : require('../../../assets/Images/ReelImg2.gif')}, {img : require('../../../assets/Images/Reelimg.gif')}]
+
+const {height} = Dimensions.get("screen")
+
+const _renderItem = (item, tabBarHeight) => {
+    
+    return(
+        <View style = {{height: height - tabBarHeight }}>
+        <ImageBackground style={{flex: 1}} source={item.img}>
                 <View style={{ flexDirection: 'row', marginTop: 10 }}>
                     <Text style={styles.reelTxt}>
                         {"Reels"}
@@ -50,6 +56,18 @@ const index = () => {
                     </View>
                 </View>
             </ImageBackground>
+            </View>
+    )
+}
+const index = () => {
+    const tabBarHeight = useBottomTabBarHeight()
+    return (
+        <View style={{ flex: 1 }}>
+            <FlatList
+            data = {reelImg}
+            renderItem = {({item})=>_renderItem(item,tabBarHeight)}
+            pagingEnabled = {true}
+            />
         </View>
     )
 }

@@ -1,16 +1,42 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import { useDispatch } from 'react-redux';
 import styles from '../../../assets/Styles';
+import { Register } from './action';
 
 const SignUp = ({ navigation }) => {
+
+    const onSignUpClick = () =>{
+        let payload = {
+            name :  name,
+            email : mail,
+            userName : userName,
+            pass : pass
+        }
+        dispatch(Register(payload))
+    }
+
+    const validateFormat = (txt) => {
+        let reg1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+        let reg2 = /^[7-9][0-9]{9}$/;
+
+        return (reg1.test(txt) || reg2.test(txt))
+    }
+    const [ mail, setMail] = React.useState('');
+    const [ pass, setPass] = React.useState('');
+    const [name , setName] = React.useState('');
+    const [userName, setUserName] = React.useState('');
+    const dispatch = useDispatch();
+
+
     return (
         <View style={styles.mainSign}>
             <Image
-                style={{ width: '60%', height: '10%', alignSelf: 'center', marginTop: 70 }}
+                style={styles.instaSignLogo}
                 source={require('../../../assets/Images/insta2.png')}
             />
-            <Text style={{ color: '#5e5e5e', fontSize: 16, fontWeight: 'bold' }}>{'Sign up to see photos and videos'}</Text>
-            <Text style={{ color: '#5e5e5e', fontSize: 16, fontWeight: 'bold' }}>{'from your friends.'}</Text>
+            <Text style={styles.logTxt1}>{'Sign up to see photos and videos'}</Text>
+            <Text style={styles.logTxt1}>{'from your friends.'}</Text>
             <TouchableOpacity onPress={() => { }} style={styles.loginBt}>
                 <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                     {'Log In with Facebook'}
@@ -25,23 +51,20 @@ const SignUp = ({ navigation }) => {
                 placeholder='Mobile number or Email' placeholderTextColor='#5e5e5e' />
             <TextInput style={styles.inputBarSign}
                 onChangeText={(txt) => {
-                    validateFormat(txt)
-                    setMail(txt)
+                    setName(txt)
                 }}
                 placeholder='Full Name' placeholderTextColor='#5e5e5e' />
             <TextInput style={styles.inputBarSign}
                 onChangeText={(txt) => {
-                    validateFormat(txt)
-                    setMail(txt)
+                    setUserName(txt)
                 }}
                 placeholder='Username' placeholderTextColor='#5e5e5e' />
             <TextInput style={styles.inputBarSign}
                 onChangeText={(txt) => {
-                    validateFormat(txt)
-                    setMail(txt)
+                    setPass(txt)
                 }}
                 placeholder='Password' placeholderTextColor='#5e5e5e' />
-            <TouchableOpacity onPress={() => { }} style={{ ...styles.loginBtSign, marginTop: 14 }}>
+            <TouchableOpacity onPress={onSignUpClick} style={{ ...styles.loginBtSign, marginTop: 14 }}>
                 <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                     {'Sign Up'}
                 </Text>
@@ -58,5 +81,4 @@ const SignUp = ({ navigation }) => {
 }
 
 export default SignUp
-
 

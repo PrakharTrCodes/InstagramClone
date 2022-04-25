@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
         return (
             <>
                 <View style={styles.cardHead}>
-                    <TouchableOpacity onPress={() => { onProPress(item) }} style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity onPress={() => { onProPress(item) }} style={styles.proPressBtn}>
                         <Image source={{ uri: item.url2 }} style={styles.dpHome} />
                         <Text style={styles.cardTitle}>{item.name}</Text>
                     </TouchableOpacity>

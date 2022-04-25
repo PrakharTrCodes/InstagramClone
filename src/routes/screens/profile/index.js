@@ -21,11 +21,11 @@ export default function Profile({ navigation, route }) {
         <View style={styles.proHead}>
             <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', paddingHorizontal: 6 }}>
                 <Image style={styles.dp} source={require(dp)} />
-                <View style={{}}>
+                <View>
                     <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>35</Text>
                     <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>Posts</Text>
                 </View>
-                <View style={{}}>
+                <View>
                     <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>325</Text>
                     <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>Followers</Text>
                 </View>

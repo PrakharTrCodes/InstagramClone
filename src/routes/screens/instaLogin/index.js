@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, StatusBar, TextInput } from 'react-native'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from '../../../assets/Styles';
 
 const InstaLogin = ({ navigation, route }) => {
@@ -8,6 +8,8 @@ const InstaLogin = ({ navigation, route }) => {
     const [pass, setPass] = React.useState('');
     const [showPass, setShowPass] = React.useState(true);
     const dispatch = useDispatch();
+    const red = useSelector(state => state.authReducer);
+    console.log("Persisted", red)
 
     const validateFormat = (txt) => {
         // setMail()
@@ -29,22 +31,22 @@ const InstaLogin = ({ navigation, route }) => {
             <StatusBar barStyle='light-content' />
             <View style={styles.innermain}>
                 <Image
-                    style={{ width: '80%', height: '30%', alignSelf: 'center', }}
+                    style={styles.loginLogo}
                     source={require('../../../assets/Images/insta2.png')}
                 />
                 <View style={styles.inputView}>
                     <TextInput style={styles.inputBar}
-                        // value = {mail}
+                        value = {mail}
                         onChangeText={(txt) => {
                             validateFormat(txt)
                             setMail(txt)
                         }}
                         placeholder='Phone number, username or email address' placeholderTextColor='#5e5e5e' />
-                    {validateFormat(mail) ? <Text>{" "}</Text> : <Text style={{ color: 'red', marginLeft: 24 }}>Invalid</Text>}
+                    {validateFormat(mail) || mail == '' ? <Text>{" "}</Text> : <Text style={{ color: 'red', marginLeft: 24 }}>Invalid</Text>}
                     <TextInput onChangeText={(txt) => { setPass(txt) }} style={styles.inputBar} placeholder='Password'
                         secureTextEntry={showPass}
                         textContentType='password' placeholderTextColor='#5e5e5e' />
-                    <Text style={{ color: '#3797f1', textAlign: 'right', right: 19, marginTop: 3, }}>
+                    <Text style={styles.loginTxt2}>
                         {"Forgot Password"}
                     </Text>
                     <TouchableOpacity onPress={() => { validate() ? dispatch({type : "SIGNEDIN_OUT", payload : true}) : Alert.alert('Invalid Credentials') }} style={styles.loginBt}>
@@ -53,7 +55,7 @@ const InstaLogin = ({ navigation, route }) => {
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <Text style={{ color: "white", textAlign: 'center' }}>
+                <Text style={styles.loginTxt3}>
                     {"Don't have an account?"}<Text onPress={() => { navigation.navigate('SignUp') }} style={{ color: "#3797f1" }}>{"  Sign Up"}</Text>
                 </Text>
             </View>

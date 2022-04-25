@@ -244,6 +244,33 @@ const styles = StyleSheet.create({
         height: 25,
         width: 25,
         marginVertical:10
+    },
+    instaSignLogo:{ 
+        width: '60%',
+        height: '10%',
+        alignSelf: 'center',
+        marginTop: 70 
+    },
+    loginLogo:{ 
+        width: '80%',
+        height: '30%',
+        alignSelf: 'center'
+    },
+    logTxt1:{ 
+        color: '#5e5e5e',
+        fontSize: 16,
+        fontWeight: 'bold' 
+    },
+    loginTxt2:{ color: '#3797f1',
+        textAlign: 'right',
+        right: 19,
+        marginTop: 3, 
+    },
+    loginTxt3:{
+        color: "white",
+        textAlign: 'center' },
+    proPressBtn:{
+        flexDirection: 'row' 
     }
 });
 
