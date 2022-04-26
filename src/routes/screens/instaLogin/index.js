@@ -8,11 +8,9 @@ const InstaLogin = ({ navigation, route }) => {
     const [pass, setPass] = React.useState('');
     const [showPass, setShowPass] = React.useState(true);
     const dispatch = useDispatch();
-    const red = useSelector(state => state.authReducer);
-    console.log("Persisted", red)
+    const {email, password } = useSelector(state => state.authReducer);
 
     const validateFormat = (txt) => {
-        // setMail()
         let reg1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         let reg2 = /^[7-9][0-9]{9}$/;
 
@@ -20,7 +18,7 @@ const InstaLogin = ({ navigation, route }) => {
     }
 
     const validate = () => {
-        if (mail.toLowerCase() === 'archanaprakhar30@gmail.com' && pass === 'Abc@3011#')
+        if (mail.toLowerCase() === email && pass === password)
             return true;
         else return false;
     }

@@ -3,16 +3,16 @@ import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TouchableOpacity
 import styles from '../../../assets/Styles';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
-const reelImg = [ {img : require('../../../assets/Images/ReelImg2.gif')}, {img : require('../../../assets/Images/Reelimg.gif')}]
+const reelImg = [ {img : require('../../../assets/Images/ReelImg2.gif')}, {img : require('../../../assets/Images/Reelimg.gif')},  {img : require('../../../assets/Images/ReelImg5.gif')},{img : require('../../../assets/Images/ReelImg3.webp')},{img : require('../../../assets/Images/ReelImg4.gif')}, {img : require('../../../assets/Images/ReelImg6.mp4')}]
 
-const {height} = Dimensions.get("screen")
+const {height} = Dimensions.get("window")
 
 const _renderItem = (item, tabBarHeight) => {
     
     return(
-        <View style = {{height: height - tabBarHeight }}>
+        <View style = {{height: height - tabBarHeight  }}>
         <ImageBackground style={{flex: 1}} source={item.img}>
-                <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', marginTop: 20 }}>
                     <Text style={styles.reelTxt}>
                         {"Reels"}
                     </Text>

@@ -22,6 +22,7 @@ const stories = () => {
     }
     return (
        <FlatList
+       bounces ={false}
        horizontal
        data = {SearchData}
        renderItem = {_renderStories}

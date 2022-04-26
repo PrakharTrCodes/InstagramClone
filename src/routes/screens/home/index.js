@@ -80,6 +80,7 @@ export default function Home({ navigation }) {
             </View>
             <Stories />
             <FlatList
+                bounces = {false}
                 ref={Ref}
                 data={SearchData}
                 renderItem={_renderItem}

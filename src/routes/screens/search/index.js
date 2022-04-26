@@ -11,7 +11,7 @@ export default function Search() {
         <View style={styles.mainSearch}>
             <ScrollView>
                 <TextInput style={styles.searchBar} placeholderTextColor='#5e5e5e' placeholder='Search' />
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                <View style={styles.eachParentView}>
                     <View style={{ flexDirection: 'row', width: windowWidth - windowWidth / 3, flexWrap: 'wrap' }}>
                         <TouchableOpacity style={styles.imgSearchTouch}>
                             <Image style={styles.searchImg2} source={{ uri: SearchData[0].url2 }} />
@@ -30,7 +30,7 @@ export default function Search() {
                         <Image style={styles.searchImg2} source={{ uri: SearchData[0].url1 }} />
                     </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                <View style={styles.eachParentView}>
                     <TouchableOpacity style={styles.imgSearchTouch}>
                         <Image style={{ height: "100%", width: "100%" }} source={{ uri: SearchData[4].url2 }} />
                     </TouchableOpacity>
@@ -50,7 +50,7 @@ export default function Search() {
                         <Image style={styles.searchImg} source={{ uri: SearchData[8].url2 }} />
                     </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                <View style={styles.eachParentView}>
                     <TouchableOpacity style={{ width: windowWidth / 3, height: windowHeight / 3, padding: 1 }}>
                         <Image style={styles.searchImg2} source={{ uri: SearchData[1].url1 }} />
                     </TouchableOpacity>

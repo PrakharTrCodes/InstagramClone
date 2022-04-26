@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity,KeyboardAvoidingView, ScrollView } from 'react-native'
 import { useDispatch } from 'react-redux';
 import styles from '../../../assets/Styles';
 import { Register } from './action';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const SignUp = ({ navigation }) => {
 
@@ -11,7 +12,7 @@ const SignUp = ({ navigation }) => {
             name :  name,
             email : mail,
             userName : userName,
-            pass : pass
+            password : pass
         }
         dispatch(Register(payload))
     }
@@ -31,10 +32,12 @@ const SignUp = ({ navigation }) => {
 
     return (
         <View style={styles.mainSign}>
+        {/* <KeyboardAwareScrollView contentContainerStyle={styles.mainSign}> */}
             <Image
                 style={styles.instaSignLogo}
                 source={require('../../../assets/Images/insta2.png')}
             />
+            <ScrollView contentContainerStyle={styles.mainSign}>
             <Text style={styles.logTxt1}>{'Sign up to see photos and videos'}</Text>
             <Text style={styles.logTxt1}>{'from your friends.'}</Text>
             <TouchableOpacity onPress={() => { }} style={styles.loginBt}>
@@ -43,6 +46,7 @@ const SignUp = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
             <Text style={{ color: '#5e5e5e', fontWeight: 'bold', margin: 26 }}>{'⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯     OR     ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'}</Text>
+            <View style={{width:'90%'}}>
             <TextInput style={styles.inputBarSign}
                 onChangeText={(txt) => {
                     validateFormat(txt)
@@ -64,6 +68,9 @@ const SignUp = ({ navigation }) => {
                     setPass(txt)
                 }}
                 placeholder='Password' placeholderTextColor='#5e5e5e' />
+            
+            </View>
+            
             <TouchableOpacity onPress={onSignUpClick} style={{ ...styles.loginBtSign, marginTop: 14 }}>
                 <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                     {'Sign Up'}
@@ -76,6 +83,8 @@ const SignUp = ({ navigation }) => {
             <Text style={{ color: '#5e5e5e', marginTop: 6 }}>
                 {"Have an account?  "}<Text onPress={() => { navigation.navigate('InstaLogin') }} style={{ color: '#3797f1' }}>{'Log in'}</Text>
             </Text>
+        {/* </KeyboardAwareScrollView> */}
+        </ScrollView>
         </View>
     )
 }

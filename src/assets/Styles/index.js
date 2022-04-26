@@ -173,14 +173,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#111111',
         flexDirection: 'row',
         borderWidth: 1,
-        width: '90%',
-        height: '5%',
-        marginHorizontal: 18,
+        marginHorizontal:10,
+        width: '95%',
+        // height: '5%',
+        marginHorizontal: 10,
         paddingHorizontal: 8,
-        marginVertical: 6,
-        color: 'white',
         borderRadius: 6,
-        letterSpacing: 0.4
+        letterSpacing: 0.4,
+        padding:10,
+        fontSize:10,
+        paddingVertical:10,
+        color:'white'
     },
     loginBtSign: {
         alignItems: 'center',
@@ -199,12 +202,14 @@ const styles = StyleSheet.create({
     },
     searchBar: {
         backgroundColor: '#111111',
-        height: 30,
+        height:40,
         width: '96%',
         borderRadius: 8,
         alignSelf: 'center',
         paddingHorizontal: 8,
+        paddingVertical:10,
         color: 'white',
+        marginBottom:10
     },
     imgSearchTouch:{
     width: windowWidth / 3,
@@ -249,7 +254,7 @@ const styles = StyleSheet.create({
         width: '60%',
         height: '10%',
         alignSelf: 'center',
-        marginTop: 70 
+        marginTop: '10%' 
     },
     loginLogo:{ 
         width: '80%',
@@ -263,7 +268,7 @@ const styles = StyleSheet.create({
     },
     loginTxt2:{ color: '#3797f1',
         textAlign: 'right',
-        right: 19,
+        // right: 19,
         marginTop: 3, 
     },
     loginTxt3:{
@@ -271,6 +276,10 @@ const styles = StyleSheet.create({
         textAlign: 'center' },
     proPressBtn:{
         flexDirection: 'row' 
+    },
+    eachParentView :{
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     }
 });
 

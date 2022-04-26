@@ -36,7 +36,6 @@ export function Feed() {
 
 export default function Navigation() {
   const { isSignedIn } = useSelector((store) => store.UsersListReducer);
-  // const [isSignedIn, setisSignedIn] = React.useState(true);
   return (
     <NavigationContainer>{isSignedIn ? (
       <Tab.Navigator screenOptions={{
@@ -101,7 +100,7 @@ export default function Navigation() {
     ) : (
       <HomeStack.Navigator>
         <HomeStack.Screen options={{ headerShown: false }} name="Splash" component={Splash} />
-        <HomeStack.Screen options={{ headerShown: false }} name="InstaLogin" component={InstaLogin}  />
+        <HomeStack.Screen options={{ headerShown: false }} name="InstaLogin" component={InstaLogin} />
         <HomeStack.Screen options={{ headerShown: false }} name="SignUp" component={SignUp} />
       </HomeStack.Navigator>
     )}

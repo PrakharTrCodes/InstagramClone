@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, SafeAreaView, Modal } from 'react-native'
+import { useSelector } from 'react-redux';
 import styles from '../../../assets/Styles';
 import ModalInsta from './ModalInsta';
 import TabNav from './TabNav';
@@ -7,14 +8,17 @@ import TabNav from './TabNav';
 
 export default function Profile({ navigation, route }) {
     let dp = '../../../assets/Images/myDp.png'
+    const {name, userName} = useSelector((store) => store.authReducer);
 
     const [modalVis, setModalVis] = React.useState(false);
     console.log('In profile', route);
-    return (<View
+    return (
+
+    <View
         style={styles.mainPro}>
-        <View style={{ height: 70, backgroundColor: '#1a1a1a', flexDirection: 'row' }}>
-            <Text style={{ color: 'white', marginTop: 40, margin: 14 }}>{"emilia@30"}</Text>
-            <TouchableOpacity onPress={() => { setModalVis(!modalVis) }} style={{ left: 250 }}>
+        <View style={{  backgroundColor: '#1a1a1a', flexDirection: 'row', }}>
+            <Text style={{ color: 'white', marginTop: 40, margin: 14 }}>{userName}</Text>
+            <TouchableOpacity onPress={() => { setModalVis(!modalVis) }} style={{ marginLeft:'auto', right:10}}>
                 <Image style={{ height: 20, width: 20, marginTop: 40 }} source={require('../../../assets/Images/menu.png')} />
             </TouchableOpacity>
         </View>
@@ -35,7 +39,7 @@ export default function Profile({ navigation, route }) {
                 </View>
             </View>
             <Text style={{ color: 'white', marginLeft: 8 }}>
-                {"Prakhar Tripathi"}
+                {name}
             </Text>
             <Text style={{ color: 'white', marginLeft: 8 }}>
                 {"Engineer"}
