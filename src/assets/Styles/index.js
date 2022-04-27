@@ -239,9 +239,10 @@ const styles = StyleSheet.create({
         left : windowWidth - 110
     },
     reelBottom:{
+        position: 'absolute',
         paddingHorizontal:10,
         width : '100%',
-        top: windowHeight - 400,
+        top: windowHeight - 340,
         flexDirection:'row',
         justifyContent:'space-around',
     },
