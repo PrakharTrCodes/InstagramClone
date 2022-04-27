@@ -24,7 +24,7 @@ const UserGrid = ({ item }) => {
                 {item.name}
             </Text>
             <Text style={styless.userProp}>
-                {item.occ}
+                {item?.occ}
             </Text>
             <Text style={styless.userProp}>
                 {"Carpadiem"}

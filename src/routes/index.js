@@ -34,6 +34,21 @@ export function Feed() {
   )
 }
 
+export function ReelStack() {
+  return (
+    <FeedStackNav.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <FeedStackNav.Screen name='Reels' component={Reels} />
+      <FeedStackNav.Screen name="User" component={User} />
+    </FeedStackNav.Navigator>
+  )
+}
+
+
+
+
 export default function Navigation() {
   const { isSignedIn } = useSelector((store) => store.UsersListReducer);
   return (
@@ -65,7 +80,7 @@ export default function Navigation() {
             )
           }
         }} />
-        <Tab.Screen name="Reels" component={Reels} options={{
+        <Tab.Screen name="ReelStack" component={ReelStack} options={{
           tabBarIcon: ({ tintColor, focused }) => (
 
             <Image

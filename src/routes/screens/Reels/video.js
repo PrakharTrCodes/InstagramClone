@@ -16,6 +16,5 @@ export default function video({img}) {
                 loop = {true}
                 hideControlsOnStart = {true}
             />
-
     )
 }

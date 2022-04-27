@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     reelTxt:{
         marginTop: 32,
         margin: 8,
-        fontSize:18,
+        fontSize:20,
         color : 'white',
         fontWeight : '600'
     },
