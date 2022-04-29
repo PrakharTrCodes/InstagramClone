@@ -12,40 +12,41 @@ const reelBottom = ({ item }) => {
     }
     return (
         <View style={styles.reelBottom}>
-            <View style={{ flexDirection: 'row', width: '100%', marginTop: 120 }}>
+            <View style={styles.reelsBottUp}>
                 <TouchableOpacity style={{ ...styles.dpHome, overflow: 'hidden', height: 28, width: 28, alignSelf: 'center', marginHorizontal: 6 }}>
-                    <Image resizeMode='contain' style={{ height: '100%', width: '100%' }} source={require('../../../assets/Images/myDp.png')} />
+                    <Image resizeMode='contain' style={styles.reelBottImg} source={{uri : item.dp}} />
                 </TouchableOpacity>
                 <TouchableOpacity style ={{ alignSelf: 'center'}} onPress={onNamePress}>
-                    <Text style={{ color: 'white', marginHorizontal: 6, fontSize: 16 }}>
+                    <Text style={styles.reelName}>
                         {item.name}
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ paddingHorizontal: 8, borderColor: 'white', justifyContent: 'center', borderWidth: 1, borderRadius: 4, height: 22, alignSelf: 'center', marginHorizontal: 6 }}>
-                    <Text style={{ color: "white", fontSize: 12 }}>
+                <TouchableOpacity style={styles.followBtn}>
+                    <Text style={styles.followTxt}>
                         {"Follow"}
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ justifyContent: 'space-between', height: 180, right: 4 }}>
+            <View style={styles.likeCommShare}>
                 <TouchableOpacity style={styles.reelsLike} onPress={() => { setToggle(!toggle) }}>
-                    <Image style={{ height: '100%', width: '100%' }} source={toggle ? require('../../../assets/Images/like.png') : require('../../../assets/Images/heart.png')} />
+                    <Image style={styles.reelBottImg} source={toggle ? require('../../../assets/Images/like.png') : require('../../../assets/Images/heart.png')} />
                 </TouchableOpacity>
-                <Text style={{ color: 'white' }}>
-                    {"330"}
+                <Text style={{...styles.reelBtmTxt}}>
+                    {toggle ? "331": "330"}
                 </Text>
                 <TouchableOpacity style={styles.reelsLike}>
-                    <Image style={{ height: '100%', width: '100%' }} source={require('../../../assets/Images/comment.png')} />
+                    <Image style={styles.reelBottImg} source={require('../../../assets/Images/comment.png')} />
                 </TouchableOpacity>
-                <Text style={{ color: 'white' }}>
+                <Text style={styles.reelBtmTxt}>
                     {"30"}
                 </Text>
                 <TouchableOpacity style={styles.reelsLike}>
-                    <Image style={{ height: '100%', width: '100%' }} source={require('../../../assets/Images/send.png')} />
+                    <Image style={styles.reelBottImg} source={require('../../../assets/Images/send.png')} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.reelsLike}>
-                    <Image style={{ height: '100%', width: '100%' }} source={require('../../../assets/Images/kebab.png')} />
+                    <Image style={styles.reelBottImg} source={require('../../../assets/Images/kebab.png')} />
                 </TouchableOpacity>
+
             </View>
         </View>
     )

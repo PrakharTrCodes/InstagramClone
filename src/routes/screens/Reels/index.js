@@ -1,17 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TouchableOpacity, Image, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, SafeAreaView, TouchableOpacity, Image, FlatList, Dimensions, StatusBar } from 'react-native';
 import styles from '../../../assets/Styles';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import Video from './video';
+import Videos from './video';
 import ReelBottom from './reelBottom';
+import { useSelector, useDispatch } from 'react-redux';
+const {height, width} = Dimensions.get('screen');
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import reelImg from '../../../assets/Data/ReelsData'
 
-const reelImg = [{ name: "Krishna", img: 'https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-woman-in-a-pool-1259-large.mp4'}, { name: "Faiz", img: 'https://assets.mixkit.co/videos/preview/mixkit-young-man-skating-in-a-parking-lot-34550-large.mp4' }, { name: "Rohit", img: 'https://assets.mixkit.co/videos/preview/mixkit-metal-surface-engraved-with-ornaments-34505-large.mp4'}, { name: "Pranav", img: 'https://assets.mixkit.co/videos/preview/mixkit-winter-fashion-cold-looking-woman-concept-video-39874-large.mp4' }]
 
 
-const _renderItem = (item) => {
-    return (<View style={{ flex: 1 }}>
-        <Video img={item.img} />
-        <View style={{ flexDirection: 'row', marginTop: 20, position: 'absolute' }}>
+
+const _renderItem = (item, tabBarHeight,  status) => {
+    return (
+    <View style={{flex : 1}}>
+        <Videos img={item.img} />
+        <View style={{ flexDirection: 'row', marginTop: 0, position: 'absolute' }}>
             <Text style={styles.reelTxt}>
                 {"Reels"}
             </Text>
@@ -23,16 +28,30 @@ const _renderItem = (item) => {
     </View>
     )
 }
-const index = () => {
+const index = ({navigation}) => {
+    const status = getStatusBarHeight()
+   
+    // React.useEffect(() => {
+    //     navigation.addListener('focus', () => {
+    //         dispatch({type : 'REEL_PLAYPAUSE', payload : true})
+    //     });
+        
+    //   }, []);
+    
+    //   React.useEffect(() => {
+    //     navigation.addListener('blur', () => {
+    //         dispatch({type : 'REEL_PLAYPAUSE', payload : false})
+    //     });
+    
+    //   }, []);
     const tabBarHeight = useBottomTabBarHeight()
-    return (
-        <View style={{ flex: 1 }}>
+    return (<SafeAreaView style = {{backgroundColor : 'black', flex : 1}}>
             <FlatList
                 data={reelImg}
-                renderItem={({ item }) => _renderItem(item, tabBarHeight)}
+                renderItem={({ item }) => _renderItem(item, tabBarHeight,  status)}
                 pagingEnabled={true}
             />
-        </View>
+            </SafeAreaView>
     )
 }
 

@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         margin: 8,
         marginLeft:2,
+        overflow:'hidden'
     },
     proHead:{
         backgroundColor:'#1a1a1a',
@@ -175,15 +176,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginHorizontal:10,
         width: '95%',
-        // height: '5%',
-        marginHorizontal: 10,
+        height: '20%',
         paddingHorizontal: 8,
         borderRadius: 6,
         letterSpacing: 0.4,
         padding:10,
         fontSize:10,
         paddingVertical:10,
-        color:'white'
+        color:'white',
+        marginVertical: 6
     },
     loginBtSign: {
         alignItems: 'center',
@@ -242,14 +243,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         paddingHorizontal:10,
         width : '100%',
-        top: windowHeight - 340,
+        top: windowHeight - 3*windowHeight/7,
         flexDirection:'row',
         justifyContent:'space-around',
     },
     reelsLike:{
         height: 25,
         width: 25,
-        marginVertical:10
+        marginVertical:10,
     },
     instaSignLogo:{ 
         width: '60%',
@@ -281,6 +282,48 @@ const styles = StyleSheet.create({
     eachParentView :{
         flexDirection: 'row',
         flexWrap: 'wrap'
+    },
+    reelsBottUp:{ 
+        flexDirection: 'row',
+        width: '100%', 
+        marginTop: 120 
+    },
+    reelBottImg : {
+        height: '100%',
+        width: '100%'
+    },
+    followBtn : { 
+        paddingHorizontal: 8, 
+        borderColor: 'white',
+        justifyContent: 'center', 
+        borderWidth: 1, 
+        borderRadius: 4, 
+        height: 22, 
+        alignSelf: 'center', 
+        marginHorizontal: 6 
+    },
+    reelBtmTxt : { 
+        color: 'white',
+    },
+    followTxt:{
+        color: "white",
+        fontSize: 12 
+    },
+    likeCommShare :{
+        justifyContent: 'space-between', 
+        height: 180, 
+        right: 8 , 
+        position : 'absolute'
+    },
+    reelName : { 
+        color: 'white', 
+        marginHorizontal: 6,
+        fontSize: 16 
+    },
+    proTxt :{
+        textAlign: 'center',
+        color: 'white', 
+        fontWeight: '500' 
     }
 });
 

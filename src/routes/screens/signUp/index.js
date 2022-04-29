@@ -46,7 +46,7 @@ const SignUp = ({ navigation }) => {
                 </Text>
             </TouchableOpacity>
             <Text style={{ color: '#5e5e5e', fontWeight: 'bold', margin: 26 }}>{'⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯     OR     ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯'}</Text>
-            <View style={{width:'90%'}}>
+            <View style={{width:'90%', height : '29%'}}>
             <TextInput style={styles.inputBarSign}
                 onChangeText={(txt) => {
                     validateFormat(txt)

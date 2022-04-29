@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, SafeAreaView, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native'
 import NotiHead from './NotiHead'
 import Notifs from './notifs';
-import SearchData from '../../../assets/Data';
+import SearchData from '../../../assets/Data/UserData.js';
 const Notification = () => {
     return (
         <View style={styles.main}>

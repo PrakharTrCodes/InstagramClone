@@ -1,20 +1,32 @@
-import React from 'react'
-import { View, Text, Dimensions } from 'react-native'
-import VideoPlayer from 'react-native-video-player'
+import React, { useRef } from 'react'
+import { View, Text, Dimensions, StyleSheet } from 'react-native'
+import Video from 'react-native-video';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-export default function video({img}) {
-    const {height, width} = Dimensions.get("window")
+const {height, width} = Dimensions.get("window")
+
+export default function Reels({img}) {
+    const status = getStatusBarHeight()
     const tabBarHeight = useBottomTabBarHeight()
+    const ref = useRef();
+    
     return (
-            <VideoPlayer
-                video={{ uri: img }}
-                videoWidth={width}
-                videoHeight={height - tabBarHeight}
-                thumbnail={{ uri: 'https://i.picsum.photos/id/866/1600/900.jpg' }}
-                autoplay = {true}
-                loop = {true}
-                hideControlsOnStart = {true}
-            />
+            <Video source={{uri: img}}
+                resizeMode = 'cover'
+                repeat = {true}
+                paused = {false}   
+                ref={(ref) => {
+                ref = ref
+                }}               
+                style={{...styles.backgroundVideo,
+                     height : height - tabBarHeight - status}} />
+            
+            
     )
 }
+var styles = StyleSheet.create({
+    backgroundVideo: {
+        width : width
+    }
+  });

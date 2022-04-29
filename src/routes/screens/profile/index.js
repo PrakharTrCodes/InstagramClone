@@ -1,15 +1,17 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image, SafeAreaView, Modal } from 'react-native'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from '../../../assets/Styles';
 import ModalInsta from './ModalInsta';
 import TabNav from './TabNav';
+import ImagePicker from 'react-native-image-crop-picker';
 
 
 export default function Profile({ navigation, route }) {
-    let dp = '../../../assets/Images/myDp.png'
-    const {name, userName} = useSelector((store) => store.authReducer);
 
+    const {dp} = useSelector(state =>state.UsersListReducer);
+    const {name, userName} = useSelector((store) => store.authReducer);
+    const dispatch = useDispatch()
     const [modalVis, setModalVis] = React.useState(false);
     console.log('In profile', route);
     return (
@@ -24,18 +26,24 @@ export default function Profile({ navigation, route }) {
         </View>
         <View style={styles.proHead}>
             <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', paddingHorizontal: 6 }}>
-                <Image style={styles.dp} source={require(dp)} />
+
+
+                <View style={styles.dp} >
+                <Image style={{ width:'100%', height:'100%'}} resizeMode = 'cover' source ={{uri:dp}}/>
+                    </View>      
+
+
                 <View>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>35</Text>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>Posts</Text>
+                    <Text style={styles.proTxt}>35</Text>
+                    <Text style={styles.proTxt}>Posts</Text>
                 </View>
                 <View>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>325</Text>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>Followers</Text>
+                    <Text style={styles.proTxt}>325</Text>
+                    <Text style={styles.proTxt}>Followers</Text>
                 </View>
                 <View style={{ marginRight: 14 }}>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>325</Text>
-                    <Text style={{ textAlign: 'center', color: 'white', fontWeight: '500' }}>Following</Text>
+                    <Text style={styles.proTxt}>325</Text>
+                    <Text style={styles.proTxt}>Following</Text>
                 </View>
             </View>
             <Text style={{ color: 'white', marginLeft: 8 }}>
@@ -48,7 +56,15 @@ export default function Profile({ navigation, route }) {
                 {"CarpaDiem"}
             </Text>
             <View style={styles.threeBtn}>
-                <TouchableOpacity onPress={() => { }} style={{ ...styles.followBt, marginTop: 14 }}>
+                <TouchableOpacity onPress={() => {
+                    ImagePicker.openPicker({
+                    width: 300,
+                    height: 400,
+                    cropping: true
+                    }).then(image => {
+                    console.log(image);
+                    dispatch({type :"SET_DP", payload : image.path})
+                    }).catch((err) =>console.log("Err", err))}} style={{ ...styles.followBt, marginTop: 14 }}>
                     <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                         {'Edit Profile'}
                     </Text>

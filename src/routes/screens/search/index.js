@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, Image, TouchableOpacity, Dimensions } from 'react-native';
-import SearchData from '../../../assets/Data';
+import Navigation from '../..';
+import SearchData from '../../../assets/Data/UserData';
 import styles from '../../../assets/Styles';
 
-export default function Search() {
+export default function Search({navigation}) {
     const windowWidth = Dimensions.get('window').width;
     const windowHeight = Dimensions.get('window').height;
 
@@ -26,7 +27,7 @@ export default function Search() {
                             <Image style={styles.searchImg} source={{ uri: SearchData[3].url2 }} />
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={{ width: windowWidth / 3, height: windowHeight / 3, padding: 1 }}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("ReelStack")}} style={{ width: windowWidth / 3, height: windowHeight / 3, padding: 1 }}>
                         <Image style={styles.searchImg2} source={{ uri: SearchData[0].url1 }} />
                     </TouchableOpacity>
                 </View>
@@ -51,7 +52,7 @@ export default function Search() {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.eachParentView}>
-                    <TouchableOpacity style={{ width: windowWidth / 3, height: windowHeight / 3, padding: 1 }}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("ReelStack")}} style={{ width: windowWidth / 3, height: windowHeight / 3, padding: 1 }}>
                         <Image style={styles.searchImg2} source={{ uri: SearchData[1].url1 }} />
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', width: windowWidth - windowWidth / 3, flexWrap: 'wrap' }}>

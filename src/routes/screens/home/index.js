@@ -1,14 +1,16 @@
 import React, { useRef } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Image, ScrollView, StatusBar, TextInput, FlatList, ImageBackground } from 'react-native'
-import SearchData from '../../../assets/Data';
 import styles from '../../../assets/Styles';
 import Stories from './stories';
 import { useDispatch, useSelector } from 'react-redux';
+import StoryScreen from './StoryScreen';
 
 export default function Home({ navigation }) {
+    const [modalVis, setModalVis] = React.useState(false);
     const Ref = useRef(null)
-    let dp = '../../../assets/Images/myDp.png'
-    const { Data } = useSelector((store) => store.UsersListReducer);
+    const {dp} = useSelector(state =>state.UsersListReducer);
+    const {Data} = useSelector(store => store.UsersListReducer);
+    console.log('Data ',Data)
     const dispatch = useDispatch();
     const onProPress = (item) => {
         navigation.navigate("User", item = { item });
@@ -54,9 +56,15 @@ export default function Home({ navigation }) {
                 <View style={styles.comments}>
                     <Text style={{ color: 'white' }}>{item.likes}</Text>
                     <View style={styles.commentsec}>
-                        <Image style={{ ...styles.dp, height: 26, width: 26 }} source={require(dp)} />
-                        <TextInput placeholderTextColor="white" placeholder='Write a comment' />
+                        <Image style={{ ...styles.dp, height: 26, width: 26 }} source={{uri :dp}} />
+                        <TextInput placeholderTextColor="white" placeholder='Write a comment' style ={{width:'75%'}}/>
+                        <TouchableOpacity onPress={()=>{}} style ={{alignSelf : 'center'}}>
+                            <Text style ={{color : 'blue'}}>
+                                {'Post'}
+                            </Text>
+                        </TouchableOpacity>
                     </View>
+                    {/* <StoryScreen modalVis ={modalVis} setModalVis = {setModalVis}/> */}
                 </View>
             </>
         )
@@ -82,7 +90,7 @@ export default function Home({ navigation }) {
             <FlatList
                 bounces = {false}
                 ref={Ref}
-                data={SearchData}
+                data={Data}
                 renderItem={_renderItem}
                 ListFooterComponent={() => {
                     return (<View style={{ width: "100%", height: 220 }}><ImageBackground style={{ height: "100%", width: "100%", justifyContent: 'flex-end' }} source={require('../../../assets/Images/endView.jpeg')}>

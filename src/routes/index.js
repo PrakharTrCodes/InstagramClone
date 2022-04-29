@@ -14,6 +14,7 @@ import User from './screens/profile/user';
 import Chat from './screens/chat';
 import Reels from './screens/Reels';
 import { useSelector } from 'react-redux';
+import StoryScreen from './screens/home/StoryScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +31,7 @@ export function Feed() {
       <FeedStackNav.Screen name='Home' component={Home} />
       <FeedStackNav.Screen name="User" component={User} />
       <FeedStackNav.Screen name="Chat" component={Chat} />
+      <FeedStackNav.Screen name='StoryScreen' component={StoryScreen} />
     </FeedStackNav.Navigator>
   )
 }
@@ -46,10 +48,23 @@ export function ReelStack() {
   )
 }
 
+export function SearchStack() {
+  return (
+    <FeedStackNav.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <FeedStackNav.Screen name='Search' component={Search} />
+      <FeedStackNav.Screen name="ReelStack" component={ReelStack} />
+    </FeedStackNav.Navigator>
+  )
+}
+
 
 
 
 export default function Navigation() {
+  const {dp} = useSelector(state =>state.UsersListReducer);
   const { isSignedIn } = useSelector((store) => store.UsersListReducer);
   return (
     <NavigationContainer>{isSignedIn ? (
@@ -69,7 +84,7 @@ export default function Navigation() {
             />
           )
         }} />
-        <Tab.Screen name="Search" component={Search} options={{
+        <Tab.Screen name="SearchStack" component={SearchStack} options={{
           tabBarIcon: ({ tintColor, focused }) => {
 
             return (
@@ -105,7 +120,7 @@ export default function Navigation() {
           tabBarIcon: ({ tintColor, focused }) => (
             <View style={{ backgroundColor: 'white', overflow: "hidden", height: 26, width: 26, borderRadius: 40 }}>
               <Image
-                source={require('../assets/Images/myDp.png')}
+                source={{uri:dp}}
                 style={{ height: '100%', width: '100%' }}
               />
             </View>

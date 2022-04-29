@@ -6,7 +6,7 @@ const UserGrid = ({ item }) => {
     return (
         <View style={styles.proHead}>
             <View style={styless.inProHeadView}>
-                <Image style={styles.dp} source={{ uri: item.url2 }} />
+                <Image style={styles.dp} source={{ uri: item.url2?item.url2:item.dp }} />
                 <View>
                     <Text style={styless.userTxt}>35</Text>
                     <Text style={styless.userTxt}>Posts</Text>
@@ -30,9 +30,14 @@ const UserGrid = ({ item }) => {
                 {"Carpadiem"}
             </Text>
             <View style={styles.threeBtn}>
-                <TouchableOpacity onPress={() => { }} style={{ ...styles.followBt, marginTop: 14 }}>
+                <TouchableOpacity onPress={() => { }} style={{ ...styles.followBt, marginTop: 14, width : "42%" }}>
                     <Text style={styless.editTxt}>
-                        {'Edit Profile'}
+                        {'Following'}
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => { }} style={{ ...styles.followBt, marginTop: 14, width : "42%" }}>
+                    <Text style={styless.editTxt}>
+                        {'Message'}
                     </Text>
                 </TouchableOpacity>
                 <TouchableOpacity>

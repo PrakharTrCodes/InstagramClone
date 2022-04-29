@@ -2,33 +2,34 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import styles from '../../../assets/Styles';
-import SearchData from '../../../assets/Data';
+import SearchData from '../../../assets/Data/UserData';
 
 const Tab = createMaterialTopTabNavigator();
 
 function ProfilePosts() {
-  return (<ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={{ height: "100%", width: "100%" }} source={{ uri: SearchData[4].url2 }} />
-      </TouchableOpacity >
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={styles.searchImg} source={{ uri: SearchData[5].url2 }} />
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={styles.searchImg} source={{ uri: SearchData[0].url2 }} />
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={styles.searchImg2} source={{ uri: SearchData[6].url2 }} />
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={styles.searchImg} source={{ uri: SearchData[7].url2 }} />
-      </TouchableOpacity>
-      <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
-        <Image style={styles.searchImg} source={{ uri: SearchData[8].url2 }} />
-      </TouchableOpacity>
-    </View>
-  </ScrollView>
+  return (
+    <ScrollView style={{ flex: 1, backgroundColor: 'black' }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={{ height: "100%", width: "100%" }} source={{ uri: SearchData[4].url2 }} />
+        </TouchableOpacity >
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={styles.searchImg} source={{ uri: SearchData[5].url2 }} />
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={styles.searchImg} source={{ uri: SearchData[0].url2 }} />
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={styles.searchImg2} source={{ uri: SearchData[6].url2 }} />
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={styles.searchImg} source={{ uri: SearchData[7].url2 }} />
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8} style={styles.imgSearchTouch}>
+          <Image style={styles.searchImg} source={{ uri: SearchData[8].url2 }} />
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   )
 }
 
