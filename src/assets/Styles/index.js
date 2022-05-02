@@ -1,4 +1,4 @@
-import {StyleSheet,Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -12,15 +12,15 @@ const styles = StyleSheet.create({
     commentsec: {
         flexDirection: 'row'
     },
-    stories:{
-        height : 70,
-        width : 70,
+    stories: {
+        height: 70,
+        width: 70,
         borderWidth: 2,
-        borderRadius: 100/2,
+        borderRadius: 100 / 2,
         overflow: 'hidden'
     },
-    storiesMain:{
-        height : 110,
+    storiesMain: {
+        height: 110,
         marginLeft: 10
     },
     mainHead: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         marginLeft: 4
     },
     cardHead: {
-        paddingHorizontal:10,
+        paddingHorizontal: 10,
         flexDirection: 'row',
     },
     dpHome: {
@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8
     },
     like: {
-        marginTop:4,
-        marginHorizontal: 6 
+        marginTop: 4,
+        marginHorizontal: 6
     },
     postVeiw: {
         width: '100%',
@@ -75,15 +75,15 @@ const styles = StyleSheet.create({
     comments: {
         margin: 8
     },
-    comment:{
-        marginLeft: 10
-    }, 
-    share : {
+    comment: {
         marginLeft: 10
     },
-    Splash:{
+    share: {
+        marginLeft: 10
+    },
+    Splash: {
         flex: 1,
-        backgroundColor:'black'
+        backgroundColor: 'black'
     },
     mainLog: {
         alignItems: 'center',
@@ -129,23 +129,23 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 6
     },
-    mainPro : {
-        flex : 1,
-        backgroundColor:'black'
+    mainPro: {
+        flex: 1,
+        backgroundColor: 'black'
     },
     dp: {
         height: 100,
         width: 100,
         borderRadius: 50,
         margin: 8,
-        marginLeft:2,
-        overflow:'hidden'
+        marginLeft: 2,
+        overflow: 'hidden'
     },
-    proHead:{
-        backgroundColor:'#1a1a1a',
+    proHead: {
+        backgroundColor: '#1a1a1a',
     },
-    threeBtn:{
-        flexDirection:'row',
+    threeBtn: {
+        flexDirection: 'row',
         alignItems: 'center',
 
     },
@@ -158,13 +158,13 @@ const styles = StyleSheet.create({
         height: 40,
         alignSelf: 'center',
         borderRadius: 5,
-        margin:6,
+        margin: 6,
     },
-    sticky:{
-        backgroundColor:'#1a1a1a',
-        flexDirection:'row',
-        width:'100%',
-        height:40
+    sticky: {
+        backgroundColor: '#1a1a1a',
+        flexDirection: 'row',
+        width: '100%',
+        height: 40
     },
     mainSign: {
         flex: 1,
@@ -175,16 +175,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#111111',
         flexDirection: 'row',
         borderWidth: 1,
-        marginHorizontal:10,
+        marginHorizontal: 10,
         width: '95%',
         height: '20%',
         paddingHorizontal: 8,
         borderRadius: 6,
         letterSpacing: 0.4,
-        padding:10,
-        fontSize:10,
-        paddingVertical:10,
-        color:'white',
+        padding: 10,
+        fontSize: 10,
+        paddingVertical: 10,
+        color: 'white',
         marginVertical: 6
     },
     loginBtSign: {
@@ -204,153 +204,155 @@ const styles = StyleSheet.create({
     },
     searchBar: {
         backgroundColor: '#111111',
-        height:40,
+        height: 40,
         width: '96%',
         borderRadius: 8,
         alignSelf: 'center',
         paddingHorizontal: 8,
-        paddingVertical:10,
+        paddingVertical: 10,
         color: 'white',
-        marginBottom:10
+        marginBottom: 10
     },
-    imgSearchTouch:{
-    width: windowWidth / 3,
-    height: windowHeight / 6, 
-    padding: 1 
+    imgSearchTouch: {
+        width: windowWidth / 3,
+        height: windowHeight / 6,
+        padding: 1
     },
-    searchImg:{
+    searchImg: {
         height: "100%",
         width: "100%",
-        margin: 1 
+        margin: 1
     },
-    searchImg2:{
+    searchImg2: {
         height: "100%",
         width: "100%"
     },
-    reelTxt:{
+    reelTxt: {
         marginTop: 32,
         margin: 8,
-        fontSize:20,
-        color : 'white',
-        fontWeight : '600'
+        fontSize: 20,
+        color: 'white',
+        fontWeight: '600'
     },
-    camIcon:{
+    camIcon: {
         height: 30,
-        width:30,
-        alignSelf:'flex-end',
-        left : windowWidth - 110
+        width: 30,
+        alignSelf: 'flex-end',
+        left: windowWidth - 110
     },
-    reelBottom:{
+    reelBottom: {
         position: 'absolute',
-        paddingHorizontal:10,
-        width : '100%',
-        top: windowHeight - 3*windowHeight/7,
-        flexDirection:'row',
-        justifyContent:'space-around',
+        paddingHorizontal: 10,
+        width: '100%',
+        top: windowHeight - 3 * windowHeight / 7,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
     },
-    reelsLike:{
+    reelsLike: {
         height: 25,
         width: 25,
-        marginVertical:10,
+        marginVertical: 10,
     },
-    instaSignLogo:{ 
+    instaSignLogo: {
         width: '60%',
         height: '10%',
         alignSelf: 'center',
-        marginTop: '10%' 
+        marginTop: '10%'
     },
-    loginLogo:{ 
+    loginLogo: {
         width: '80%',
         height: '30%',
         alignSelf: 'center'
     },
-    logTxt1:{ 
+    logTxt1: {
         color: '#5e5e5e',
         fontSize: 16,
-        fontWeight: 'bold' 
+        fontWeight: 'bold'
     },
-    loginTxt2:{ color: '#3797f1',
+    loginTxt2: {
+        color: '#3797f1',
         textAlign: 'right',
         right: 19,
-        marginTop: 3, 
+        marginTop: 3,
     },
-    loginTxt3:{
+    loginTxt3: {
         color: "white",
-        textAlign: 'center' },
-    proPressBtn:{
-        flexDirection: 'row' 
+        textAlign: 'center'
     },
-    eachParentView :{
+    proPressBtn: {
+        flexDirection: 'row'
+    },
+    eachParentView: {
         flexDirection: 'row',
         flexWrap: 'wrap'
     },
-    reelsBottUp:{ 
+    reelsBottUp: {
         flexDirection: 'row',
-        width: '100%', 
-        marginTop: 120 
+        width: '100%',
+        marginTop: 120
     },
-    reelBottImg : {
+    reelBottImg: {
         height: '100%',
         width: '100%'
     },
-    followBtn : { 
-        paddingHorizontal: 8, 
+    followBtn: {
+        paddingHorizontal: 8,
         borderColor: 'white',
-        justifyContent: 'center', 
-        borderWidth: 1, 
-        borderRadius: 4, 
-        height: 22, 
-        alignSelf: 'center', 
-        marginHorizontal: 6 
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderRadius: 4,
+        height: 22,
+        alignSelf: 'center',
+        marginHorizontal: 6
     },
-    reelBtmTxt : { 
+    reelBtmTxt: {
         color: 'white',
     },
-    followTxt:{
+    followTxt: {
         color: "white",
-        fontSize: 12 
+        fontSize: 12
     },
-    likeCommShare :{
-        justifyContent: 'space-between', 
-        height: 180, 
-        right: 8 , 
-        position : 'absolute'
+    likeCommShare: {
+        justifyContent: 'space-between',
+        height: 180,
+        right: 8,
+        position: 'absolute'
     },
-    reelName : { 
-        color: 'white', 
+    reelName: {
+        color: 'white',
         marginHorizontal: 6,
-        fontSize: 16 
+        fontSize: 16
     },
-    proTxt :{
+    proTxt: {
         textAlign: 'center',
-        color: 'white', 
-        fontWeight: '500' 
+        color: 'white',
+        fontWeight: '500'
     },
-    postImage :{ 
-        height: 294, 
-        width: '100%' 
+    postImage: {
+        height: 294,
+        width: '100%'
     },
-    homeIconImg :{ 
-        height: 20, 
-        width: 20 
+    homeIconImg: {
+        height: 20,
+        width: 20
     },
-    iconsHome:{ 
+    iconsHome: {
         marginHorizontal: 6,
-        marginTop: 4, 
+        marginTop: 4,
     },
-    instaHomeLogo :{
-        width: 98, 
-        height: 24, 
+    instaHomeLogo: {
+        width: 98,
+        height: 24,
         left: 4
     },
-    sendHome :{ 
+    sendHome: {
         height: 18,
-        width: 18 
+        width: 18
     },
-    signTxt:{ fontWeight: '700' },
-    signTxt1:{ color: '#5e5e5e', marginTop: 12 },
-    policyTxt:{ color: '#5e5e5e', marginTop: 2, fontWeight: '700' },
-    signUpacc : { color: '#5e5e5e', marginTop: 6 }
+    signTxt: { fontWeight: '700' },
+    signTxt1: { color: '#5e5e5e', marginTop: 12 },
+    policyTxt: { color: '#5e5e5e', marginTop: 2, fontWeight: '700' },
+    signUpacc: { color: '#5e5e5e', marginTop: 6 }
 });
 
 export default styles;
