@@ -3,6 +3,7 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import styles from '../../../assets/Styles'
 
+
 const reelBottom = ({ item }) => {
     const navigation =  useNavigation();
     console.log("navigation", navigation)

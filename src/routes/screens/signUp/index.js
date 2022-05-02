@@ -14,7 +14,8 @@ const SignUp = ({ navigation }) => {
             userName : userName,
             password : pass
         }
-        dispatch(Register(payload))
+        dispatch(Register(payload));
+        navigation.navigate("InstaLogin")
     }
 
     const validateFormat = (txt) => {
@@ -29,6 +30,12 @@ const SignUp = ({ navigation }) => {
     const [userName, setUserName] = React.useState('');
     const dispatch = useDispatch();
 
+    const checkDisable =()=>{
+        if( mail.length==0 || !validateFormat(mail)|| pass.length == 0 || name.length == 0 || userName.length == 0){
+            return true
+        }
+        return false
+    }
 
     return (
         <View style={styles.mainSign}>
@@ -71,7 +78,7 @@ const SignUp = ({ navigation }) => {
             
             </View>
             
-            <TouchableOpacity onPress={onSignUpClick} style={{ ...styles.loginBtSign, marginTop: 14 }}>
+            <TouchableOpacity disabled ={checkDisable()} onPress={onSignUpClick} style={checkDisable()?{ ...styles.loginBtSign, marginTop: 14, backgroundColor : 'grey'} :{ ...styles.loginBtSign, marginTop: 14 }}>
                 <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                     {'Sign Up'}
                 </Text>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, StatusBar, TextInput } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '../../../assets/Styles';
@@ -23,6 +23,13 @@ const InstaLogin = ({ navigation, route }) => {
         else return false;
     }
 
+    const handleDisabled=()=>{
+        if( mail.length==0 || !validateFormat(mail)|| pass.length == 0){
+            return true
+        }
+        return false
+    }
+
 
     return (
         <View style={styles.mainLog}>
@@ -34,12 +41,13 @@ const InstaLogin = ({ navigation, route }) => {
                 />
                 <View style={styles.inputView}>
                     <TextInput style={styles.inputBar}
+                    autoCapitalize ={false}
                         value = {mail}
                         onChangeText={(txt) => {
                             validateFormat(txt)
                             setMail(txt)
                         }}
-                        placeholder='Phone number, username or email address' placeholderTextColor='#5e5e5e' />
+                        placeholder='Phone number or email address' placeholderTextColor='#5e5e5e' />
                     {validateFormat(mail) || mail == '' ? <Text>{" "}</Text> : <Text style={{ color: 'red', marginLeft: 24 }}>Invalid</Text>}
                     <TextInput onChangeText={(txt) => { setPass(txt) }} style={styles.inputBar} placeholder='Password'
                         secureTextEntry={showPass}
@@ -47,7 +55,7 @@ const InstaLogin = ({ navigation, route }) => {
                     <Text style={styles.loginTxt2}>
                         {"Forgot Password"}
                     </Text>
-                    <TouchableOpacity onPress={() => { validate() ? dispatch({type : "SIGNEDIN_OUT", payload : true}) : Alert.alert('Invalid Credentials') }} style={styles.loginBt}>
+                    <TouchableOpacity onPress={() => { validate() ? dispatch({type : "SIGNEDIN_OUT", payload : true}) : Alert.alert('Invalid Credentials') }} style={handleDisabled() ? {...styles.loginBt, backgroundColor:'grey'}:styles.loginBt} disabled={handleDisabled()}>
                         <Text style={{ color: 'white', fontWeight: 'bold', letterSpacing: 1 }}>
                             {'Log In'}
                         </Text>

@@ -8,9 +8,8 @@ import StoryScreen from './StoryScreen';
 export default function Home({ navigation }) {
     const [modalVis, setModalVis] = React.useState(false);
     const Ref = useRef(null)
-    const {dp} = useSelector(state =>state.UsersListReducer);
-    const {Data} = useSelector(store => store.UsersListReducer);
-    console.log('Data ',Data)
+    const { dp } = useSelector(state => state.UsersListReducer);
+    const { Data } = useSelector(store => store.UsersListReducer);
     const dispatch = useDispatch();
     const onProPress = (item) => {
         navigation.navigate("User", item = { item });
@@ -33,33 +32,33 @@ export default function Home({ navigation }) {
                         <Text style={styles.cardTitle}>{item.name}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.option} >
-                        <Image style={{ height: '100%', width: '100%' }} source={require('../../../assets/Images/kebab.png')} />
+                        <Image style={styles.searchImg2} source={require('../../../assets/Images/kebab.png')} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.postVeiw}>
-                    <Image resizeMode='contain' style={{ height: 294, width: '100%' }} source={{ uri: item.url1 }} />
+                    <Image resizeMode='contain' style={styles.postImage} source={{ uri: item.url1 }} />
                 </View>
                 <View style={styles.postBottom}>
                     <TouchableOpacity style={styles.like} onPress={() => {
                         let i = Data.findIndex(x => item == x)
                         onPressLike(i)
                     }}>
-                        <Image resizeMode='contain' style={{ height: 20, width: 20 }} source={item.toggle ? require('../../../assets/Images/like.png') : require('../../../assets/Images/heart.png')} />
+                        <Image resizeMode='contain' style={styles.homeIconImg} source={item.toggle ? require('../../../assets/Images/like.png') : require('../../../assets/Images/heart.png')} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginHorizontal: 6, marginTop: 4, }}>
-                        <Image style={{ height: 20, width: 20 }} source={require('../../../assets/Images/comment.png')} />
+                    <TouchableOpacity style={styles.iconsHome}>
+                        <Image style={styles.homeIconImg} source={require('../../../assets/Images/comment.png')} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ marginHorizontal: 6, marginTop: 4, }}>
-                        <Image style={{ height: 18, width: 18 }} source={require('../../../assets/Images/send.png')} />
+                    <TouchableOpacity style={styles.iconsHome}>
+                        <Image style={styles.sendHome} source={require('../../../assets/Images/send.png')} />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.comments}>
                     <Text style={{ color: 'white' }}>{item.likes}</Text>
                     <View style={styles.commentsec}>
-                        <Image style={{ ...styles.dp, height: 26, width: 26 }} source={{uri :dp}} />
-                        <TextInput placeholderTextColor="white" placeholder='Write a comment' style ={{width:'75%'}}/>
-                        <TouchableOpacity onPress={()=>{}} style ={{alignSelf : 'center'}}>
-                            <Text style ={{color : 'blue'}}>
+                        <Image style={{ ...styles.dp, height: 26, width: 26 }} source={{ uri: dp }} />
+                        <TextInput placeholderTextColor="white" placeholder='Write a comment' style={{ width: '75%' }} />
+                        <TouchableOpacity onPress={() => { }} style={{ alignSelf: 'center' }}>
+                            <Text style={{ color: '#3797f1' }}>
                                 {'Post'}
                             </Text>
                         </TouchableOpacity>
@@ -76,7 +75,7 @@ export default function Home({ navigation }) {
             <StatusBar barStyle='light-content' />
             <View style={styles.mainHead}>
                 <Image
-                    style={{ width: 98, height: 24, left: 4 }}
+                    style={styles.instahomeLogo}
                     source={require('../../../assets/Images/insta2.png')}
                 />
                 <TouchableOpacity>
@@ -88,13 +87,13 @@ export default function Home({ navigation }) {
             </View>
             <Stories />
             <FlatList
-                bounces = {false}
+                bounces={false}
                 ref={Ref}
                 data={Data}
                 renderItem={_renderItem}
                 ListFooterComponent={() => {
                     return (<View style={{ width: "100%", height: 220 }}><ImageBackground style={{ height: "100%", width: "100%", justifyContent: 'flex-end' }} source={require('../../../assets/Images/endView.jpeg')}>
-                        <Text onPress={() => { Ref.current.scrollToIndex({ index: 0 }) }} style={{ color: "blue", textAlign: 'center', bottom: 16 }}>{"View Older posts"}</Text>
+                        <Text onPress={() => { Ref.current.scrollToIndex({ index: 0 }) }} style={{ color: "#3797f1", textAlign: 'center', bottom: 16 }}>{"View Older posts"}</Text>
                     </ImageBackground>
                     </View>)
                 }}

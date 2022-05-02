@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
     loginBt: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40, backgroundColor: '#3797f1',
+        marginTop: 40,
+        backgroundColor: '#3797f1',
         width: '90%',
         height: 40,
         alignSelf: 'center',
@@ -270,7 +271,7 @@ const styles = StyleSheet.create({
     },
     loginTxt2:{ color: '#3797f1',
         textAlign: 'right',
-        // right: 19,
+        right: 19,
         marginTop: 3, 
     },
     loginTxt3:{
@@ -324,6 +325,27 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white', 
         fontWeight: '500' 
+    },
+    postImage :{ 
+        height: 294, 
+        width: '100%' 
+    },
+    homeIconImg :{ 
+        height: 20, 
+        width: 20 
+    },
+    iconsHome:{ 
+        marginHorizontal: 6,
+        marginTop: 4, 
+    },
+    instaHomeLogo :{
+        width: 98, 
+        height: 24, 
+        left: 4
+    },
+    sendHome :{ 
+        height: 18,
+        width: 18 
     }
 });
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { View, Text, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, Dimensions, StyleSheet, Platform } from 'react-native'
 import Video from 'react-native-video';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
@@ -20,13 +20,13 @@ export default function Reels({img}) {
                 ref = ref
                 }}               
                 style={{...styles.backgroundVideo,
-                     height : height - tabBarHeight - status}} />
+                     height :Platform.OS === "ios"? height - tabBarHeight - status: height}} />
             
             
     )
 }
 var styles = StyleSheet.create({
     backgroundVideo: {
-        width : width
+        width : width,
     }
   });

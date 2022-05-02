@@ -14,7 +14,7 @@ import reelImg from '../../../assets/Data/ReelsData'
 
 const _renderItem = (item, tabBarHeight,  status) => {
     return (
-    <View style={{flex : 1}}>
+    <View style={Platform.OS ==='ios'?{flex : 1, backgroundColor:'black'}: {height : height - tabBarHeight - status, backgroundColor:'black'}}>
         <Videos img={item.img} />
         <View style={{ flexDirection: 'row', marginTop: 0, position: 'absolute' }}>
             <Text style={styles.reelTxt}>
@@ -45,7 +45,7 @@ const index = ({navigation}) => {
     
     //   }, []);
     const tabBarHeight = useBottomTabBarHeight()
-    return (<SafeAreaView style = {{backgroundColor : 'black', flex : 1}}>
+    return (<SafeAreaView style = {Platform.OS ==='ios'?{flex : 1, backgroundColor:'black'}: {height : height - tabBarHeight - status, backgroundColor:'black'}}>
             <FlatList
                 data={reelImg}
                 renderItem={({ item }) => _renderItem(item, tabBarHeight,  status)}
