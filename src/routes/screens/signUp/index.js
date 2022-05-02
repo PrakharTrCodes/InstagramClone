@@ -83,11 +83,11 @@ const SignUp = ({ navigation }) => {
                     {'Sign Up'}
                 </Text>
             </TouchableOpacity>
-            <Text style={{ color: '#5e5e5e', marginTop: 12 }}>
-                {"By signing up, you agree to our "}<Text style={{ fontWeight: '700' }}>{'Terms , Data'}</Text>
+            <Text style={styles.signTxt1}>
+                {"By signing up, you agree to our "}<Text style={styles.signTxt}>{'Terms , Data'}</Text>
             </Text>
-            <Text style={{ color: '#5e5e5e', marginTop: 2, fontWeight: '700' }}>{"Policy and Cookies Policy ."}</Text>
-            <Text style={{ color: '#5e5e5e', marginTop: 6 }}>
+            <Text style={styles.policyTxt}>{"Policy and Cookies Policy ."}</Text>
+            <Text style={styles.signUpacc}>
                 {"Have an account?  "}<Text onPress={() => { navigation.navigate('InstaLogin') }} style={{ color: '#3797f1' }}>{'Log in'}</Text>
             </Text>
         {/* </KeyboardAwareScrollView> */}

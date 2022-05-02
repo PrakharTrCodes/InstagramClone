@@ -346,7 +346,11 @@ const styles = StyleSheet.create({
     sendHome :{ 
         height: 18,
         width: 18 
-    }
+    },
+    signTxt:{ fontWeight: '700' },
+    signTxt1:{ color: '#5e5e5e', marginTop: 12 },
+    policyTxt:{ color: '#5e5e5e', marginTop: 2, fontWeight: '700' },
+    signUpacc : { color: '#5e5e5e', marginTop: 6 }
 });
 
 export default styles;
