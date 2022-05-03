@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     commentsec: {
         flexDirection: 'row'
     },
+    messCard:{
+        flexDirection : 'row'
+    },
     stories: {
         height: 70,
         width: 70,
@@ -19,9 +22,29 @@ const styles = StyleSheet.create({
         borderRadius: 100 / 2,
         overflow: 'hidden'
     },
+    vidCam:{
+        height : '100%',
+        width : '100%'
+    },
+    messImageView:{
+
+    },
     storiesMain: {
         height: 110,
         marginLeft: 10
+    },
+    chatHead:{
+        flexDirection:'row',
+        height : '6%',
+        width :'100%',
+        backgroundColor : 'black',
+        paddingHorizontal : 8
+    },
+    chatTxt :{
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize : 14,
+        alignSelf : 'center'
     },
     mainHead: {
         flexDirection: 'row',
@@ -30,7 +53,6 @@ const styles = StyleSheet.create({
     headText: {
         alignSelf: 'center',
         left: 22,
-        fontWeight: 30,
         color: 'white',
         fontWeight: 'bold'
     },
@@ -160,6 +182,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         margin: 6,
     },
+    styles:{
+
+    },
     sticky: {
         backgroundColor: '#1a1a1a',
         flexDirection: 'row',
@@ -196,6 +221,10 @@ const styles = StyleSheet.create({
         height: 40,
         alignSelf: 'center',
         borderRadius: 6
+    },
+    chatMain:{
+        backgroundColor : 'black',
+        flex : 1
     },
     mainSearch: {
         flex: 1,
