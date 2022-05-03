@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 6,
         marginTop: 4,
     },
-    instaHomeLogo: {
+    instahomeLogo: {
         width: 98,
         height: 24,
         left: 4
